@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport"
+		 	  content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">		
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../common/css/mybase.css" />
+		<link rel="stylesheet" type="text/css" href="../common/css/animate.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/sumit_detail_user.css"/>
+		<link rel="stylesheet" type="text/css" href="../common/css/loading.css" />
+	</head>
+	<body>
+	   	   <div class="loading">
+		    <div class="wrapp">
+		        <div class="load-5">
+		            <div class="k-ring-2" >
+		                <div class="k-ball-holder">
+		                    <div class="k-ball1a" ></div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+       </div>
+    	<div class="all_box animated fadeInRightBig" id="all_con">
+			<div class="con_ins animated fadeInDownBig">
+				<h1 class="ins_title">{{dataContop.name}}</h1>
+				<div class="ins_con">
+					<span>{{dataContop.description}}</span>
+				</div>
+				<div class="ins_time">
+					起止时间：<span>{{dataContop.start_time.split(" ")[0]}}</span><span>~</span><span>{{dataContop.end_time.split(" ")[0]}}</span>
+				</div>
+				<div class="ins_per">
+					负责人： <span>{{dataContop.director_name}}</span>
+				</div>
+			</div>
+			<div class="con_data animated fadeInUpBig">
+				<table>
+					<thead>
+						<tr class="first_tr">
+							<th>工号</th>
+							<th>姓名</th>
+							<th class="last_td" colspan="2">材料名称</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-for="(item,index) in dataCon">
+							<td>{{item.user_code}}</td>
+							<td>{{item.user_name}}</td>
+							<td class="title_con last_td" colspan="2">
+								{{item.material_list[0].name}}
+							</td>
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+
+			    
+			</div>
+		</div>
+		<script src="../common/js/require.js" data-main='js/submit_detail_user.js'></script>
+	</body>
+</html>

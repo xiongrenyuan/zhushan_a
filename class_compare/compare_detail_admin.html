@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport"
+		 	  content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../common/css/mybase.css" />
+		<link rel="stylesheet" type="text/css" href="css/compare_detail_admin.css"/>
+		<link rel="stylesheet" type="text/css" href="../common/css/animate.min.css" />
+		<link rel="stylesheet" type="text/css" href="../common/css/loading.css" />
+		
+	</head>
+	<body>  
+       <div class="loading">
+		    <div class="wrapp">
+		        <div class="load-5">
+		            <div class="k-ring-2" >
+		                <div class="k-ball-holder">
+		                    <div class="k-ball1a" ></div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+       </div>
+		<div class="all_box" id="all_con">
+
+			<div class="con_ins animated fadeInUpBig">
+				<h1 class="ins_title">{{dataContop.name}}</h1>
+				<div class="ins_con">
+					<span>{{dataContop.description}}</span>
+				</div>
+				<div class="ins_time">
+					起止时间：<span>{{dataContop.start_time.split(" ")[0]}}</span> <span>~</span><span>{{dataContop.end_time.split(" ")[0]}}</span>
+				</div>
+				<div class="ins_per">
+					负责人： <span>{{dataContop.director_name}}</span>
+				</div>
+			</div>
+			<div class="con_circle clearfix animated fadeInLeftBig" >
+				<div class="circleProgress_wrapper">
+					<div class="wrapper l_div">
+	                	<div class="circleProgress leftcircle"></div>
+	                </div>
+	            	<div class="wrapper r_div">
+	            		<div class="circleProgress rightcircle"></div>
+	                </div>
+	                <span class="percent">{{finish_num}}/{{all_num}}</span>
+				</div>
+				<div class="circle_title">
+					<div>
+						<span class="ex one"></span>
+						<span class="ex_con">已上传评比材料班级:</span>
+						<span class="ex_num">{{finish_num}}</span>
+					</div>
+					<div>
+						<span class="ex two"></span>
+						<span class="ex_con">未上传评比材料班级:</span>
+						<span class="ex_num">{{undone_num}}</span>
+					</div>
+				</div>
+				
+			</div>
+			<div class="con_data animated fadeInRightBig">
+				<table>
+					<thead>
+						<tr>
+							<th>名次</th>
+							<th colspan="2" class="large_td">年级</th>
+							<th>班级</th>
+							<th>得分</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-cloak v-for="(item, index) in dataCon">
+							<td>{{item.ranking}}</td>
+							<td colspan="2">{{item.grade}}</td>
+							<td>{{item.classz}}</td>
+							<td :fid="item.class_id" :class="test(item.status)">{{item.status}}</td>
+						</tr>
+							
+					</tbody>
+				</table>
+			</div>
+		</div>
+    <script src="../common/js/require.js" data-main='js/compare_detail_admin.js'></script> 
+	</body>
+</html>

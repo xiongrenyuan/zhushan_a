@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport"
+		 	  content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">		
+		<title>论文提交</title>
+		<link rel="stylesheet" type="text/css" href="../common/css/mybase.css" />
+		<link rel="stylesheet" type="text/css" href="../common/css/animate.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/submit_index.css"/>
+		<link rel="stylesheet" type="text/css" href="../common/css/loading.css" />
+
+	</head>
+	<body>
+
+
+		
+		<div class="all_box" id="all_con">
+			<div class="top clearfix">
+				<div class="top_con topL topFocus">进行中</div>
+				<div class="top_con topR">已结束</div>
+			</div>
+		   <div class="loading">
+		    <div class="wrapp">
+		        <div class="load-5">
+		            <div class="k-ring-2" >
+		                <div class="k-ball-holder">
+		                    <div class="k-ball1a" ></div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+           </div>
+		
+			<div class="data_show">
+				<ul class="undone main" v-show="undoneShow" >
+					<li class="conList animated rollIn" v-for="(item, index) in dataCon" v-if="myfilter(item.end_time) == 1" :fid="item.id" >
+						<div class="data_top">
+							<h1 class="data_title" >{{item.name}}</h1>
+							<div class="data_main">{{item.description}}</div>
+						</div>
+						<div class="data_footer">
+							起止时间：<span>{{item.start_time.split(" ")[0]}}</span> ~ <span>{{item.end_time.split(" ")[0]}}</span>
+						</div>							
+					</li>	
+					
+				</ul>
+				<ul class="complete main" v-show="completeShow">
+					<li class="conList animated rollIn" v-for="(item, index) in dataCon" v-if="myfilter(item.end_time) == 0" :fid="item.id" >
+						<div class="data_top">
+							<h1 class="data_title" >{{item.name}}</h1>
+							<div class="data_main">{{item.description}}</div>
+						</div>
+						<div class="data_footer">
+							起止时间：<span>{{item.start_time.split(" ")[0]}}</span> ~ <span>{{item.end_time.split(" ")[0]}}</span>
+						</div>							
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script src="../common/js/jquery-1.8.3.min.js"></script>
+		<script src="../common/js/vue221.js"></script>
+		<script src="../common/js/require.js" data-main='js/submit_index.js'></script>
+	</body>
+</html>
